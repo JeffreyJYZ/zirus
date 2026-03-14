@@ -3,14 +3,12 @@
 		--background: #0a0a0a;
 		--foreground: #ededed;
 	}
-
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--background: #0a0a0a;
-			--foreground: #ededed;
-		}
+	.display {
+		font-family: var(--font-display) monospace;
 	}
-
+	.body {
+		font-family: var(--font-body) var(--font-fallback) sans-serif;
+	}
 	body {
 		background-color: var(--background);
 		color: var(--foreground);
@@ -53,6 +51,9 @@
 		border: 1px solid grey;
 		padding: 5px;
 		margin: 5px 0 5px 0;
+	}
+	input:focus-visible {
+		outline: none;
 	}
 	button,
 	input[type="submit"] {

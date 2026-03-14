@@ -1,15 +1,16 @@
 import { ElementClass } from "@/lib/types";
 import AuthForm from "../../ui/components/auth/form";
+import Link from "next/link";
 
 export default function AuthPage() {
 	const sectionClass: ElementClass = "";
 	const sectionHeadingClass: ElementClass = "justify-self-center";
 
 	return (
-		<main>
+		<main className="flex flex-col items-center">
 			<h1 className="justify-self-center mb-1">Auth Page</h1>
 			<hr className="mb-10 w-20 justify-self-center" />
-			<main className="flex gap-20 justify-center items-start w-full">
+			<main className="flex gap-20 justify-center items-start w-full flex-wrap">
 				<section className={sectionClass}>
 					<h2 className={sectionHeadingClass}>Log In</h2>
 					<AuthForm
@@ -28,6 +29,12 @@ export default function AuthPage() {
 					/>
 				</section>
 			</main>
+			<Link
+				href="/"
+				className="mt-5 border border-gray-500 rounded-xl py-2 px-4 bg-gray-900"
+			>
+				Home
+			</Link>
 		</main>
 	);
 }
