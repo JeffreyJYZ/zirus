@@ -1,5 +1,6 @@
 import "server-only";
 
+import { eq } from "drizzle-orm";
 import db from "@/db";
 import { sessions } from "@/db/schemas";
 import { cookies } from "next/headers";
@@ -54,4 +55,15 @@ export async function setAuthCookie(
 		path: "/",
 		expires,
 	});
+}
+
+export async function destroySession() {
+	const cookieStore = await cookies();
+	const sessionToken = cookieStore.get(SESSION_COOKIE_NAME)?.value;
+
+	if (sessionToken) {
+		await db.delete(sessions).where(eq(sessions.token, sessionToken));
+	}
+
+	cookieStore.delete(SESSION_COOKIE_NAME);
 }

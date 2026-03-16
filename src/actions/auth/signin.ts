@@ -10,6 +10,7 @@ import {
 	verifyPassword,
 } from "../../lib/funcs/auth/password";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 export default async function signin(prevState: any, payload: FormData) {
 	const username = payload.get("username");
@@ -54,6 +55,13 @@ export default async function signin(prevState: any, payload: FormData) {
 	const session = await createSession({
 		id: user.id,
 		username: user.username,
+	});
+
+	const cookieStore = await cookies();
+	cookieStore.set("authSession", session.token, {
+		httpOnly: true,
+		sameSite: "lax",
+		secure: process.env.NODE_ENV === "production",
 	});
 
 	redirect("/main");

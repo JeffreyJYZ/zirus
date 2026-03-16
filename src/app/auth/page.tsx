@@ -5,6 +5,12 @@ import AuthForm from "../../ui/components/auth/form";
 import Link from "next/link";
 import { hasValidToken } from "@/lib/funcs/auth/session";
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Auth | Zirus",
+	description: "Log in or sign up to Zirus.",
+};
 
 export default async function AuthPage() {
 	const sectionClass: ElementClass = "";
@@ -25,10 +31,8 @@ export default async function AuthPage() {
 					<AuthForm act={signup} />
 				</section>
 			</main>
-			<Link
-				href="/"
-				className="mt-5 border border-gray-500 rounded-xl py-2 px-4 bg-gray-900"
-			>
+			<hr className="border border-white w-25 mt-10" />
+			<Link href="/" className="mt-2">
 				Home
 			</Link>
 		</main>
