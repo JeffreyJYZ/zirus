@@ -1,6 +1,10 @@
 import logout from "@/actions/auth/logout";
-import { hasValidToken } from "@/lib/funcs/auth/session";
-import { unauthorized } from "next/navigation";
+import {
+	hasTokenOrUnauthorized,
+	hasValidToken,
+} from "@/lib/funcs/auth/session";
+import { redirect, unauthorized } from "next/navigation";
+import HomeButtons from "../../ui/components/home/buttons";
 
 export const metadata = {
 	title: "Main | Zirus",
@@ -8,9 +12,7 @@ export const metadata = {
 };
 
 export default async function MainPage() {
-	const tokenValid = await hasValidToken();
-	if (!tokenValid) unauthorized();
-	const actionBtnsClasses = "p-10 text-2xl rounded-4xl";
+	await hasTokenOrUnauthorized();
 	return (
 		<main>
 			<span className="flex justify-center items-center gap-10">
@@ -29,15 +31,7 @@ export default async function MainPage() {
 				<h2 className="body text-2xl p-3 border border-gray-600/50 w-fit rounded-b-2xl">
 					Welcome to your Home Page!
 				</h2>
-				<div className="flex flex-wrap gap-5 mt-10 justify-center">
-					<button className={actionBtnsClasses}>
-						Continue a game
-					</button>
-					<button className={actionBtnsClasses}>Create a game</button>
-					<button className={actionBtnsClasses}>
-						Continue your last game
-					</button>
-				</div>
+				<HomeButtons />
 			</main>
 		</main>
 	);

@@ -7,7 +7,10 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "eslint"
+		"lint": "eslint",
+		"db:migrate": "npx drizzle-kit migrate",
+		"db:gen": "npx drizzle-kit generate",
+		"db:push": "pnpm db:gen && pnpm db:migrate"
 	},
 	"dependencies": {
 		"@neondatabase/serverless": "^1.0.2",

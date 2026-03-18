@@ -29,6 +29,27 @@
       "when": 1773553204516,
       "tag": "0003_aromatic_living_tribunal",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1773754318668,
+      "tag": "0004_windy_gravity",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1773754928462,
+      "tag": "0005_optimal_synch",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1773755442506,
+      "tag": "0006_burly_ink",
+      "breakpoints": true
     }
   ]
 }

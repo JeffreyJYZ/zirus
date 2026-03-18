@@ -1,0 +1,1 @@
+ALTER TABLE "users" ADD COLUMN "current_game_id" serial NOT NULL;
