@@ -5,7 +5,7 @@ import {
 	initialGameActionState,
 	type GameActionState,
 } from "@/lib/types/game-action";
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 
 type ContinueGameFormProps = {
 	games: Array<{
@@ -20,6 +20,11 @@ export default function ContinueGameForm({ games }: ContinueGameFormProps) {
 		continueGame,
 		initialGameActionState,
 	);
+	const [selectedGameId, setSelectedGameId] = useState(
+		String(games[0]?.id ?? ""),
+	);
+	const selectedGame =
+		games.find((game) => String(game.id) === selectedGameId) ?? games[0];
 
 	return (
 		<form action={action} className="flex w-full max-w-lg flex-col gap-4">
@@ -32,8 +37,11 @@ export default function ContinueGameForm({ games }: ContinueGameFormProps) {
 					<div className="relative">
 						<select
 							name="gameName"
-							defaultValue={String(games[0]?.id ?? "")}
-							className="body w-full appearance-none rounded-2xl border border-blue-300/25 bg-black px-4 py-3 pr-12 text-base text-blue-50 shadow-[0_0_18px_rgba(59,130,246,0.12)] outline-none transition-colors duration-200 focus:border-gray-400/50 hover:border-gray-500/50"
+							value={selectedGameId}
+							onChange={(event) =>
+								setSelectedGameId(event.target.value)
+							}
+							className="body min-w-0 w-full appearance-none rounded-2xl border border-blue-300/25 bg-black px-4 py-3 pr-10 text-sm text-blue-50 shadow-[0_0_18px_rgba(59,130,246,0.12)] outline-none transition-colors duration-200 focus:border-gray-400/50 hover:border-gray-500/50 sm:pr-12 sm:text-base"
 						>
 							{games.map((game) => (
 								<option
@@ -41,8 +49,7 @@ export default function ContinueGameForm({ games }: ContinueGameFormProps) {
 									value={game.id}
 									className="bg-slate-950 text-blue-50"
 								>
-									{game.name} · Last updated{" "}
-									{new Date(game.updatedAt).toLocaleString()}
+									{game.name}
 								</option>
 							))}
 						</select>
@@ -62,6 +69,11 @@ export default function ContinueGameForm({ games }: ContinueGameFormProps) {
 							</svg>
 						</span>
 					</div>
+					<span className="text-xs text-blue-200/65">
+						{selectedGame
+							? `Last updated ${new Date(selectedGame.updatedAt).toLocaleString()}`
+							: "No saved games available"}
+					</span>
 					<span className="text-xs text-blue-200/65">
 						{games.length} saved{" "}
 						{games.length === 1 ? "game" : "games"} available

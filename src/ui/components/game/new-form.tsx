@@ -27,7 +27,7 @@ export default function NewGameForm() {
 						placeholder="Enter a game name"
 						required
 						maxLength={80}
-						className="body rounded-2xl border border-gray-500/50 bg-black px-4 py-3 text-base"
+						className="body rounded-2xl border border-gray-500/50 bg-black px-4 py-3 text-base focus:border-gray-400/50 hover:border-gray-500/50 duration-300"
 					/>
 				</label>
 				{state.errors.gameName && (

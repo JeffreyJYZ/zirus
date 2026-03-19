@@ -10,7 +10,7 @@ export default function HomeButtons({
 	hasCurrentGame,
 }: HomeButtonsProps) {
 	const actionBtnsClasses =
-		"body inline-flex items-center justify-center bg-[#5080ad] text-2xl font-bold text-black rounded-4xl hover:bg-[#345ca7] hover:-translate-y-[1px] p-10 hover:no-underline transition-all duration-200";
+		"body inline-flex items-center justify-center bg-[#5080ad] text-2xl font-bold text-black rounded-4xl hover:bg-[#345ca7] hover:-translate-y-[1px] p-10 hover:no-underline transition-all duration-200 text-center";
 	return (
 		<div className="flex flex-wrap gap-5 mt-5 justify-center">
 			<Link href="/main/new" className={actionBtnsClasses}>

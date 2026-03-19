@@ -5,6 +5,9 @@ import ContinueGameForm from "@/ui/components/game/continue-form";
 import type { Metadata } from "next";
 import { desc, eq } from "drizzle-orm";
 import Link from "next/link";
+import BackToMainLink from "../../../ui/components/new-and-continue/back-to-main-link";
+import Heading from "../../../ui/components/new-and-continue/heading";
+import ActionText from "../../../ui/components/new-and-continue/action-txt";
 
 export const metadata: Metadata = {
 	title: "Continue Game | Zirus",
@@ -29,11 +32,9 @@ export default async function ContinueGamePage() {
 
 	return (
 		<main className="px-6 py-12 flex flex-col items-center gap-6">
-			<h1 className="font-bold text-center w-full">Continue Game</h1>
-			<hr className="border border-white w-30" />
-			<p className="body max-w-2xl text-center text-lg text-blue-100/85">
-				Pick one of your saved games and make it the active session.
-			</p>
+			<BackToMainLink />
+			<Heading />
+			<ActionText />
 			{savedGames.length === 0 ? (
 				<p className="body rounded-2xl border border-blue-500/30 bg-blue-500/10 px-4 py-3 text-center text-sm text-blue-100/85">
 					You do not have any saved games yet.{" "}

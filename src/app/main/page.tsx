@@ -27,9 +27,10 @@ export default async function MainPage() {
 	const hasCurrentGame = Boolean(currentGame);
 	return (
 		<main className="px-6 py-8">
-			<span className="flex flex-wrap justify-center items-center gap-6">
-				<h1 className="justify-self-center">Main Page</h1>
-				<form action={logout}>
+			<div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+				<div />
+				<h1 className="text-center font-bold">Main Page</h1>
+				<form action={logout} className="justify-self-end">
 					<button
 						className="body text-xl p-3 bg-red-400 hover:bg-red-500"
 						type="submit"
@@ -37,7 +38,7 @@ export default async function MainPage() {
 						Logout
 					</button>
 				</form>
-			</span>
+			</div>
 			<hr className="mt-8 border-white" />
 			<h2 className="body w-fit rounded-b-2xl border border-gray-600/50 px-4 py-3 text-2xl justify-self-center mb-7">
 				Welcome to your Home Page!
