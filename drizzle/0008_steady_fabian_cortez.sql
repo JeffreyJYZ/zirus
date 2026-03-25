@@ -1,0 +1,1 @@
+ALTER TABLE "games" ADD COLUMN "state" json DEFAULT '{}'::json NOT NULL;
