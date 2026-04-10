@@ -23,7 +23,10 @@ export default async function HomePage() {
 				>
 					Journey Page
 				</Link>
-				<Link href={"https://zirus-game"} className={buttonClasses}>
+				<Link
+					href={"https://github.com/zirus-game/zirus"}
+					className={buttonClasses}
+				>
 					GitHub
 				</Link>
 			</section>
