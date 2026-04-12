@@ -16,9 +16,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" suppressHydrationWarning className="h-full">
             <body
-                className={`${fonts.text.variable} ${fonts.display.variable} ${fonts.fallback.variable} ${fonts.text.className} justify-center p-10 antialiased`}
+                className={`${fonts.text.variable} ${fonts.display.variable} ${fonts.fallback.variable} ${fonts.text.className} h-full justify-center p-10 antialiased`}
                 suppressHydrationWarning
             >
                 <NextTopLoader

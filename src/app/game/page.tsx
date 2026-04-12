@@ -2,6 +2,7 @@ import { hasTokenOrUnauthorized } from "@/lib/funcs/auth/session";
 import getCurrentGame from "@/lib/funcs/game/getGame";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { File, Folder } from "../../ui/components/game/file-folder";
 
 export const metadata: Metadata = {
     title: "Game | Zirus",
@@ -12,22 +13,12 @@ export default async function GamePage() {
     await hasTokenOrUnauthorized();
     const currentGame = await getCurrentGame();
     return (
-        <main>
-            <h1 className="text-3xl">Game Page</h1>
-            <p className="mt-5 text-xl">
-                This is where the game will be. It is currently under
-                development.
-            </p>
-            <p className="mt-3 mb-20 text-lg">
-                {currentGame
-                    ? `Current game: ${currentGame.name}`
-                    : "No active game found."}
-            </p>
-            <span className="mt-20 underline">
-                <Link href="/main">
-                    ← <i>Go Back to Main Page</i>
-                </Link>
-            </span>
+        <main className="flex h-full flex-col">
+            <section className="flex-1/5 border border-white"></section>
+            <section className="flex flex-4/5 border border-white">
+                <main className="flex-1 border-r border-r-white"></main>
+                <section className="flex-1/6"></section>
+            </section>
         </main>
     );
 }
