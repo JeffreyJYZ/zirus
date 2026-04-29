@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     experimental: {
         authInterrupts: true,
     },
+    output: "standalone",
 };
 
 const withMDX = createMDX();
